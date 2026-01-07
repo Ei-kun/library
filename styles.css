@@ -5,34 +5,28 @@
 body{
     display: grid;
     grid-template-columns: 1fr 8fr 4fr;
+    grid-template-rows: auto 5fr 5fr 2fr;
     margin: 0;
     gap: 24px;
     background-color: #efefef;
+    min-height: 100vh;
 }
 
 .sidebar{
-    grid-row: 1/span 5;
+    grid-row: 1/-1;
     background-color: #ff2c2c;
-    height: 100vh;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: subgrid;
     justify-items: center;
 }
 
 .sidebar .sub{
     display: flex;
+    grid-row: 2/span 2;
     flex-direction: column;
     justify-content: center;
     gap: 24px;
 }
-
-.searchbar,
-.profile,
-.sidebar > .header-icon {
-  padding-top: 24px;
-}
-
-
 
 .sub .icon img{
     height: 24px;
@@ -81,7 +75,7 @@ input[type="search"]::-webkit-search-cancel-button {
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
     padding-right: 24px;
 }
 
@@ -98,4 +92,34 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .footer-icon{
     padding-bottom: 24px;
+}
+
+.first-row{
+    margin-top: 24px;
+}
+
+.quote{
+    background-image: url(images/quoteBackground.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 12px;
+    padding: 24px 48px;
+    display: flex;
+    justify-content: center ;
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+}
+
+.quote > .quoteHeader{
+    border: none;
+    background-color: #79baec;
+    color: white;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+.quote > .content{
+    font-size: 2rem;
 }
