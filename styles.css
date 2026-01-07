@@ -87,7 +87,15 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .pfp img{
     border-radius: 50%;
-    height: 32px;
+    height: 36px;
     aspect-ratio: 1/1;
     object-fit: cover;
+}
+
+.profile .icon img{
+    height: 24px;
+}
+
+.footer-icon{
+    padding-bottom: 24px;
 }
