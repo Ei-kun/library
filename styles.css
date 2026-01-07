@@ -5,11 +5,12 @@
 body{
     display: grid;
     grid-template-columns: 1fr 8fr 4fr;
-    grid-template-rows: auto 5fr 5fr 2fr;
+    grid-template-rows: auto 6fr 5fr 2fr;
     margin: 0;
     gap: 24px;
     background-color: #efefef;
     min-height: 100vh;
+    margin-right: 24px;
 }
 
 .sidebar{
@@ -76,7 +77,6 @@ input[type="search"]::-webkit-search-cancel-button {
     justify-content: end;
     align-items: center;
     gap: 20px;
-    padding-right: 24px;
 }
 
 .pfp img{
@@ -122,4 +122,44 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .quote > .content{
     font-size: 2rem;
+}
+
+.add-book{
+    background-color: #dddcdc;
+    padding: 12px 24px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+    border-radius: 12px;
+}
+
+.add-book img{
+    display: block;
+    height: 100%;
+    width: 100%;
+    grid-row: 1/-1;
+}
+
+.add-book button{
+    align-self:end;
+    justify-self: center;
+    border: none;
+    border-radius: 4px;
+    background-color:white;
+    padding: 12px 36px;
+    cursor: pointer;
+}
+
+.add-book button:hover{
+    opacity: 0.8;
+    transform: translateY(-1px);
+}
+
+.add-book button:active{
+    opacity: 0.9;
+}
+
+.add-book .message{
+    font-size: large;
 }
