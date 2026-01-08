@@ -6,7 +6,7 @@
 body{
     display: grid;
     grid-template-columns: 1fr 8fr 4fr;
-    grid-template-rows: auto 6fr 5fr 2fr;
+    grid-template-rows: auto 5fr 5fr 1.75fr;
     margin: 0;
     gap: 24px;
     background-color: #efefef;
@@ -246,7 +246,8 @@ input[type="search"]::-webkit-search-cancel-button {
 .books{
     display: flex;
     flex-direction: column;
-    max-height: 190px;
+    max-height: 200px;
+    gap: 8px;
 }
 
 .collection-header{
@@ -269,6 +270,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .collection .book img{
     width:95px;
+    height: 150px;
 }
 
 .collection div .outer-bar{
