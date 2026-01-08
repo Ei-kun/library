@@ -128,7 +128,7 @@ input[type="search"]::-webkit-search-cancel-button {
     background-color: #dddcdc;
     padding: 12px 24px;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.5fr 2.5fr;
     grid-template-rows: 1fr 1fr;
     gap: 16px;
     border-radius: 12px;
@@ -199,4 +199,42 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .ad button:active{
     opacity: 0.9;
+}
+
+.email{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid #ff2c2c;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    width: 75%;
+    margin-left: auto;
+    overflow: hidden;
+}
+
+.email-input{
+    border: none;
+    border-right: 2px solid #ff2c2c;
+    text-align: center;
+    flex-grow: 1;
+    font-size: 0.9rem;
+}
+
+.email button{
+    border: none;
+    background-color: #ff2c2c;
+    cursor: pointer;
+}
+
+.email button:hover{
+    opacity: 0.8;
+}
+
+.email button:active{
+    opacity: 0.9;
+}
+
+.email img{
+    height: 32px;
+    width: 64px;
 }
