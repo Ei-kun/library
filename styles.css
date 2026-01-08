@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body{
@@ -121,7 +122,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .quote > .content{
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
 
 .add-book{
@@ -161,7 +162,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .add-book .message{
-    font-size: large;
+    font-size: medium;
 }
 
 .ad{
@@ -180,7 +181,7 @@ input[type="search"]::-webkit-search-cancel-button {
 .ad .message{
     display:  inline-block;
     color: white;
-    font-size: large;
+    font-size: 1.15rem;
     text-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 
@@ -206,8 +207,8 @@ input[type="search"]::-webkit-search-cancel-button {
     flex-direction: row;
     border: 2px solid #ff2c2c;
     border-radius: 8px;
-    margin-bottom: 24px;
-    width: 75%;
+    margin-bottom: 18px;
+    width: 85%;
     margin-left: auto;
     overflow: hidden;
 }
@@ -217,13 +218,16 @@ input[type="search"]::-webkit-search-cancel-button {
     border-right: 2px solid #ff2c2c;
     text-align: center;
     flex-grow: 1;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .email button{
     border: none;
     background-color: #ff2c2c;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .email button:hover{
@@ -237,4 +241,46 @@ input[type="search"]::-webkit-search-cancel-button {
 .email img{
     height: 32px;
     width: 64px;
+}
+
+.books{
+    display: flex;
+    flex-direction: column;
+    max-height: 190px;
+}
+
+.collection-header{
+    margin-bottom: 4px;
+}
+
+.collection{
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 24px;
+    overflow: auto;
+}
+
+.collection .book{
+    display: flex;
+    flex-direction:column;
+    align-items: start;
+    gap: 8px;
+}
+
+.collection .book img{
+    width:95px;
+}
+
+.collection div .outer-bar{
+    width: 95px;
+    height: 4px;
+    background-color: #dddcdc;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.collection div .outer-bar .inner-bar{
+    height: 100%;
+    width: 10%;
+    background-color: #ff2c2c;
 }
