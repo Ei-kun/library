@@ -15,6 +15,7 @@ function Book(title,author,page,cover,read,pagesRead){
 }
 
 function addBookToLibrary(item){
+    updateStats(true,item);
     myLibrary.push(item);
 
     const collection=document.querySelector(".collection");
@@ -49,6 +50,34 @@ function addBookToLibrary(item){
     container.appendChild(image);
     container.appendChild(outerBar);
     collection.appendChild(container);
+}
+
+function updateStats(add,item){
+    const statsRead=document.querySelector(".stats-read");
+    const statsAuthor=document.querySelector(".stats-author");
+    const statsReading=document.querySelector(".stats-reading");
+    if(add===true){
+        if(item.pagesRead===item.page){
+            statsRead.textContent=Number(statsRead.textContent)+1;
+        }
+        else{
+            statsReading.textContent=Number(statsReading.textContent)+1;
+        }
+        if(!myLibrary.find(book => book.author===item.author)){
+            statsAuthor.textContent=Number(statsAuthor.textContent)+1;
+        }
+    }
+    else{
+        if(item.pagesRead===item.page){
+            statsRead.textContent=Number(statsRead.textContent)-1;
+        }
+        else{
+            statsReading.textContent=Number(statsReading.textContent)-1;
+        }
+        if(!myLibrary.find(book => book.author===item.author && (book.id!==item.id))){
+            statsAuthor.textContent=Number(statsAuthor.textContent)-1;
+        }
+    }
 }
 
 const showInputDialog=document.querySelector(".add-button");
@@ -110,7 +139,9 @@ const bookList=document.querySelector(".books");
 bookList.addEventListener("click",(e) => {
     if(e.target.closest(".delete")){
         const id=e.target.closest(".book").id;
-        myLibrary=myLibrary.filter( book => book.id!==id);
+        const removedBook=myLibrary.find( book => book.id===id);
+        updateStats(false,removedBook);
+        myLibrary=myLibrary.filter(book => book.id!==id);
         e.target.closest(".book").remove();
     }
 });
