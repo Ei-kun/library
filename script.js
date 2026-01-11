@@ -16,6 +16,16 @@ function addBookToLibrary(item){
     const collection=document.querySelector(".collection");
     const container=document.createElement("div");
     container.classList.add("book");
+    const overlay=document.createElement("div");
+    overlay.classList.add("overlay");
+    const del=document.createElement("button");
+    del.classList.add("delete");
+    const delImg=document.createElement("img");
+    delImg.src="images/delete.svg";
+    const edit=document.createElement("button");
+    edit.classList.add("edit");
+    const editImg=document.createElement("img");
+    editImg.src="images/edit.svg";
     const image=document.createElement("img");
     image.src=(item.cover!=="")?item.cover:something;
     const outerBar=document.createElement("div");
@@ -25,7 +35,12 @@ function addBookToLibrary(item){
     innerBar.style.width=(item.read==="false")? 
     `${(Number(item.pagesRead)*100)/Number(item.page)}%`: `100%`;
 
+    del.appendChild(delImg);
+    edit.appendChild(editImg);
+    overlay.appendChild(del);
+    overlay.appendChild(edit);
     outerBar.appendChild(innerBar);
+    container.appendChild(overlay);
     container.appendChild(image);
     container.appendChild(outerBar);
     collection.appendChild(container);
