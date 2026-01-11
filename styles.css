@@ -336,8 +336,23 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .collection div .outer-bar .inner-bar{
     height: 100%;
-    width: 10%;
     background-color: #ff2c2c;
+}
+
+.collection div .outer-bar .one{
+    width:calc(((56/208)*100%))
+}
+
+.collection div .outer-bar .two{
+    width:calc(((327/327)*100%))
+}
+
+.collection div .outer-bar .three{
+    width:calc(((218/432)*100%))
+}
+
+.collection div .outer-bar .four{
+    width:calc(((91/128)*100%))
 }
 
 .statistics{

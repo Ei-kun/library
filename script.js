@@ -1,4 +1,8 @@
-let myLibrary=[];
+let myLibrary=[{id: '30d1baa1-bffe-4b71-b256-b8bf0d4c16f0', title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', page: 208, read: 'false', pagesRead: 56, cover:"./images/gatsby.jpg"},
+    {id: 'c02bc95b-db06-4daf-9f58-ededbe124b4b', title: 'Harry Potter', author: 'J.K. Rowling', page: 327, read: 'true', pagesRead: 327, cover:"./images/potter.jpg"},
+    {id: '096f92b5-ecb8-444e-b515-e19fbc561b9f', title: 'Truly Madly Guilty', author: 'Liane Moriarty', page: 432, read: 'false', pagesRead: 218, cover:"./images/truly-madly.jpg"},
+    {id: 'cfe31631-35b2-498b-b605-fadd2cc85349', title: 'Streetcar Named Desire', author: 'Tennessee Williams', page: 128, read: 'false', pagesRead: 91, cover:"./images/a-street-car.jpg"}
+];
 
 function Book(title,author,page,cover,read,pagesRead){
     this.id=crypto.randomUUID();
@@ -16,6 +20,7 @@ function addBookToLibrary(item){
     const collection=document.querySelector(".collection");
     const container=document.createElement("div");
     container.classList.add("book");
+    container.id=item.id;
     const overlay=document.createElement("div");
     overlay.classList.add("overlay");
     const del=document.createElement("button");
@@ -33,7 +38,7 @@ function addBookToLibrary(item){
     const innerBar=document.createElement("div");
     innerBar.classList.add("inner-bar");
     innerBar.style.width=(item.read==="false")? 
-    `${(Number(item.pagesRead)*100)/Number(item.page)}%`: `100%`;
+        `${(Number(item.pagesRead)*100)/Number(item.page)}%`: `100%`;
 
     del.appendChild(delImg);
     edit.appendChild(editImg);
@@ -90,11 +95,22 @@ form.forEach(item =>{
         const title= item.elements["title"].value;
         const author=item.elements["author"].value;
         const page=item.elements["page"].value;
-        const cover=item.elements["cover"].value;
+        const cover=(item.elements["cover"].value==="")?
+            ("./images/book-cover.jpg"):(item.elements["cover"].value);
         const read=item.elements["read"].value;
         const pagesRead=item.elements["pages-read"].value;
         addBookToLibrary(new Book(title,author,page,cover,read,pagesRead));
         item.reset();
         dialog.close();
     });
+});
+
+const bookList=document.querySelector(".books");
+
+bookList.addEventListener("click",(e) => {
+    if(e.target.closest(".delete")){
+        const id=e.target.closest(".book").id;
+        myLibrary=myLibrary.filter( book => book.id!==id);
+        e.target.closest(".book").remove();
+    }
 });
