@@ -26,12 +26,17 @@ function addBookToLibrary(item){
     overlay.classList.add("overlay");
     const del=document.createElement("button");
     del.classList.add("delete");
+    del.setAttribute("title","delete");
     const delImg=document.createElement("img");
     delImg.src="images/delete.svg";
-    const edit=document.createElement("button");
-    edit.classList.add("edit");
-    const editImg=document.createElement("img");
-    editImg.src="images/edit.svg";
+    const checkBox=document.createElement("input");
+    checkBox.classList.add("check");
+    checkBox.setAttribute("title","Mark as complete");
+    checkBox.setAttribute("type","checkbox");
+    if(item.page === item.pagesRead){
+        checkBox.disabled=true;
+        checkBox.checked=true;
+    }
     const image=document.createElement("img");
     image.src=(item.cover!=="")?item.cover:something;
     const outerBar=document.createElement("div");
@@ -42,9 +47,8 @@ function addBookToLibrary(item){
         `${(Number(item.pagesRead)*100)/Number(item.page)}%`: `100%`;
 
     del.appendChild(delImg);
-    edit.appendChild(editImg);
     overlay.appendChild(del);
-    overlay.appendChild(edit);
+    overlay.appendChild(checkBox);
     outerBar.appendChild(innerBar);
     container.appendChild(overlay);
     container.appendChild(image);
@@ -143,5 +147,20 @@ bookList.addEventListener("click",(e) => {
         updateStats(false,removedBook);
         myLibrary=myLibrary.filter(book => book.id!==id);
         e.target.closest(".book").remove();
+    }
+});
+
+bookList.addEventListener("change", (e) =>{
+    if(e.target.closest(".check")){
+        const statsRead=document.querySelector(".stats-read");
+        const statsReading=document.querySelector(".stats-reading");
+        statsRead.textContent=Number(statsRead.textContent)+1;
+        statsReading.textContent=Number(statsReading.textContent)-1;
+        const book=e.target.closest(".book");
+        const bookObject=myLibrary.find(item => item.id===book.id);
+        bookObject.pagesRead=bookObject.page;
+        const innerBar=book.querySelector(".inner-bar");
+        innerBar.style.width="100%";
+        e.target.disabled=true;
     }
 });
