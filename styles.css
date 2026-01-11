@@ -536,6 +536,41 @@ dialog form #pages-read{
     display: block;
 }
 
+form input[type="radio"]{
+    appearance: none;
+    height: 16px;
+    width: 16px;
+    background-color:#d5d5d5;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    vertical-align:top;
+}
+
+form input[type="radio"]:hover{
+    background-color: #a5a5a5;
+}
+
+form input[type="radio"]:after{
+    font-family: "Font Awesome 6 Free";
+    display: none;
+    content: "\f00c";
+    color: white;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+form input[type="radio"]:checked{
+    background-color: #ff2c2c;
+}
+
+form input[type="radio"]:checked:after{
+    display: block;
+    background-color: #ff2c2c;
+}
+
 .option .option-text{
     display: inline-block;
     margin-bottom: 6px;
