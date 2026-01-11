@@ -41,25 +41,25 @@
         <div class="collection-header">Continue Reading</div>
         <div class="collection">
             <div class="book">
-                <img alt="Book 1" src="images/gatsby.jpg">
+                <img src="images/gatsby.jpg">
                 <div class="outer-bar">
                     <div class="inner-bar"></div>
                 </div>
             </div>
             <div class="book">
-                <img alt="Book 1" src="images/potter.jpg">
+                <img src="images/potter.jpg">
                 <div class="outer-bar">
                     <div class="inner-bar"></div>
                 </div>
             </div>
             <div class="book">
-                <img alt="Book 1" src="images/truly-madly.jpg">
+                <img src="images/truly-madly.jpg">
                 <div class="outer-bar">
                     <div class="inner-bar"></div>
                 </div>
             </div>
             <div class="book">
-                <img alt="Book 1" src="images/just-friends.jpg">
+                <img src="images/just-friends.jpg">
                 <div class="outer-bar">
                     <div class="inner-bar"></div>
                 </div>
@@ -102,20 +102,20 @@
         <div class="form-logo"><img alt="logo" src="images/github-alt-red.svg"></div>
         <div class="form-header">Archive a great read!</div>
         <div class="form-message">Save books you own, read, or plan to explore.</div>
-        <form method="post">
-            <input placeholder="Book Title" id="title" name="title" type="text" required>
+        <form autocomplete="off">
+            <input autofocus placeholder="Book Title" id="title" name="title" type="text" required>
             <input placeholder="Author's Name" id="author" name="author" type="text" required>
             <input placeholder="Total pages" id="page" name="page" type="number" required>
-            <input placeholder="https://book-cover-url.com" id="cover" name="page" type="url">
+            <input placeholder="https://book-cover-url.com" id="cover" name="cover" type="url">
             <div class="option">
                 <div class="option-text">Finished reading?</div>
-                <input type="radio" name="read" id="read-yes">
+                <input type="radio" name="read" value="true" id="read-yes" required>
                 <label for="read-yes">Yes</label>
-                <input type="radio" name="read" id="read-no">
+                <input type="radio" name="read" value="false" id="read-no">
                 <label for="read-no">No</label>
-                <input placeholder="Pages read" id="pages-read" name="pages-read" type="text">
+                <input placeholder="Pages read" id="pages-read" name="pages-read" type="number">
             </div>
-            <button>Add to collection</button>
+            <button id="add-book">Add to collection</button>
         </form>
     </dialog>
 </body>
