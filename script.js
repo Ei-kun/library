@@ -15,6 +15,7 @@ function Book(title,author,page,cover,read,pagesRead){
 }
 
 function addBookToLibrary(item){
+    if(item.pagesRead >= item.page) item.read="true";
     updateStats(true,item);
     myLibrary.push(item);
 
@@ -159,6 +160,7 @@ bookList.addEventListener("change", (e) =>{
         const book=e.target.closest(".book");
         const bookObject=myLibrary.find(item => item.id===book.id);
         bookObject.pagesRead=bookObject.page;
+        bookObject.read="true";
         const innerBar=book.querySelector(".inner-bar");
         innerBar.style.width="100%";
         e.target.disabled=true;
